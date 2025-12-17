@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ConnectHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4a5568;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2d3748;
+        }
+
+        .btn-primary {
+            background: #4a5568;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #2d3748;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        input,
+        textarea,
+        select {
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #2d3748;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #4a5568;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button[type="submit"] {
+            background: #4a5568;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            align-self: flex-start;
+        }
+
+        button[type="submit"]:hover {
+            background: #2d3748;
+        }
+
+        aside {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        aside h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-item strong {
+            color: #2d3748;
+            font-size: 1rem;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: #718096;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #4a5568;
+        }
+
+        address {
+            font-style: normal;
+            color: #718096;
+            line-height: 1.8;
+        }
+
+        .office-hours {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .office-hours dl {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .office-hours dt {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .office-hours dd {
+            color: #718096;
+            margin-left: 0;
+        }
+
+        footer {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer nav ul {
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        footer nav a {
+            color: #e2e8f0;
+        }
+
+        footer nav a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="main.html" class="logo">ConnectHub</a>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="main2.html">Contact</a></li>
+                <li><a href="main3.html">Documentation</a></li>
+                <li><a href="#" class="btn-primary">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Get in Touch</h1>
+            <p class="intro-text">Have a question or want to learn more about ConnectHub? We'd love to hear from you. Fill out the form below or reach out using our contact information.</p>
+
+            <div class="contact-wrapper">
+                <article>
+                    <h2>Send us a Message</h2>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="business">Business Partnership</option>
+                                <option value="media">Media Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                </article>
+
+                <aside>
+                    <h2>Contact Information</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <strong>Email</strong>
+                            <a href="mailto:contact@connecthub.com">contact@connecthub.com</a>
+                        </div>
+
+                        <div class="contact-item">
+                            <strong>Phone</strong>
+                            <a href="tel:+1234567890">+1 (234) 567-890</a>
+                        </div>
+
+                        <div class="contact-item">
+                            <strong>Address</strong>
+                            <address>
+                                123 Social Street<br>
+                                Suite 456<br>
+                                San Francisco, CA 94102<br>
+                                United States
+                            </address>
+                        </div>
+                    </div>
+
+                    <div class="office-hours">
+                        <h2 style="font-size: 1.3rem; margin-bottom: 1rem;">Office Hours</h2>
+                        <dl>
+                            <dt>Monday - Friday</dt>
+                            <dd>9:00 AM - 6:00 PM PST</dd>
+                            <dt>Saturday</dt>
+                            <dd>10:00 AM - 4:00 PM PST</dd>
+                            <dt>Sunday</dt>
+                            <dd>Closed</dd>
+                        </dl>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="main.html#about">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="main2.html">Contact</a></li>
+            </ul>
+        </nav>
+        <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2024 ConnectHub. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

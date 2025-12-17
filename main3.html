@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - ConnectHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4a5568;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2d3748;
+        }
+
+        .btn-primary {
+            background: #4a5568;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #2d3748;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #4a5568;
+            margin-top: 1.5rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 3rem;
+        }
+
+        .doc-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        article {
+            line-height: 1.8;
+        }
+
+        article p {
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        article ul,
+        article ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        article li {
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: #f7fafc;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #2d3748;
+            border: 1px solid #e2e8f0;
+        }
+
+        pre {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            border: none;
+        }
+
+        aside {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        aside h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+            color: #2d3748;
+        }
+
+        aside ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        aside li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        aside li:last-child {
+            border-bottom: none;
+        }
+
+        aside a {
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        aside a:hover {
+            color: #2d3748;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+
+        footer {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer nav ul {
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        footer nav a {
+            color: #e2e8f0;
+        }
+
+        footer nav a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .doc-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="main.html" class="logo">ConnectHub</a>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="main2.html">Contact</a></li>
+                <li><a href="main3.html">Documentation</a></li>
+                <li><a href="#" class="btn-primary">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>ConnectHub Documentation</h1>
+            <p class="intro-text">Welcome to the ConnectHub documentation. Here you'll find everything you need to get started, learn about our platform features, and integrate with our API.</p>
+
+            <div class="doc-wrapper">
+                <article>
+                    <h2>About ConnectHub</h2>
+                    <p>ConnectHub was founded with a simple mission: to bring people together in meaningful ways. We believe that social media should enhance real connections, not replace them.</p>
+                    <p>Our platform combines the best features of modern social networking with a focus on authentic engagement, privacy, and user experience. Whether you're looking to stay in touch with friends, grow your business, or discover new passions, ConnectHub provides the tools and community to make it happen.</p>
+                    <p>Join us on this journey to create a more connected, empathetic, and inspiring online community.</p>
+
+                    <h2 id="getting-started">Getting Started</h2>
+                    <h3>Creating an Account</h3>
+                    <p>To get started with ConnectHub, you'll need to create an account:</p>
+                    <ol>
+                        <li>Click the "Sign Up" button in the header</li>
+                        <li>Enter your email address and choose a secure password</li>
+                        <li>Verify your email address through the confirmation link</li>
+                        <li>Complete your profile with basic information</li>
+                        <li>Start connecting with friends and exploring content</li>
+                    </ol>
+
+                    <h3>Basic Navigation</h3>
+                    <p>Once logged in, you'll have access to:</p>
+                    <ul>
+                        <li><strong>Home Feed:</strong> Your personalized content stream</li>
+                        <li><strong>Profile:</strong> Your personal page and settings</li>
+                        <li><strong>Messages:</strong> Direct communication with connections</li>
+                        <li><strong>Discover:</strong> Explore new content and users</li>
+                        <li><strong>Notifications:</strong> Stay updated on activity</li>
+                    </ul>
+
+                    <h2 id="platform-features">Platform Features</h2>
+                    <div class="feature-list">
+                        <div class="feature-card">
+                            <h3>Global Community</h3>
+                            <p>Connect with people from all corners of the world. Share your story and discover amazing content from diverse perspectives. Our global reach ensures you can find and connect with like-minded individuals regardless of location.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Privacy First</h3>
+                            <p>Your data is yours. We prioritize your privacy with advanced security features and transparent data practices. Control who sees your content with granular privacy settings and data export options.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Smart Feed</h3>
+                            <p>AI-powered algorithm shows you content that matters. Discover what you love and stay connected with what's important. Our feed learns from your interactions to provide relevant content.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Creative Tools</h3>
+                            <p>Express yourself with powerful editing tools, filters, and creative features that make your content stand out. From photo editing to video creation, we provide everything you need.</p>
+                        </div>
+                    </div>
+
+                    <h2 id="developer-api">Developer API</h2>
+                    <h3>Authentication</h3>
+                    <p>ConnectHub uses OAuth 2.0 for API authentication. To get started, you'll need to register your application and obtain API credentials.</p>
+                    <pre><code>POST /api/v1/oauth/token
+Content-Type: application/json
+
+{
+  "client_id": "your_client_id",
+  "client_secret": "your_client_secret",
+  "grant_type": "client_credentials"
+}</code></pre>
+
+                    <h3>Example API Request</h3>
+                    <p>Once authenticated, you can make requests to our API endpoints:</p>
+                    <pre><code>GET /api/v1/users/profile
+Authorization: Bearer your_access_token
+
+Response:
+{
+  "id": "user123",
+  "username": "johndoe",
+  "email": "john@example.com",
+  "created_at": "2024-01-01T00:00:00Z"
+}</code></pre>
+
+                    <h3>Rate Limits</h3>
+                    <p>API requests are rate-limited to ensure fair usage:</p>
+                    <ul>
+                        <li>Free tier: 1,000 requests per hour</li>
+                        <li>Pro tier: 10,000 requests per hour</li>
+                        <li>Enterprise: Custom limits based on agreement</li>
+                    </ul>
+
+                    <h2 id="help-center">Help Center</h2>
+                    <h3>Frequently Asked Questions</h3>
+                    <p><strong>How do I reset my password?</strong></p>
+                    <p>Click on "Forgot Password" on the login page and follow the instructions sent to your email address.</p>
+
+                    <p><strong>How do I change my privacy settings?</strong></p>
+                    <p>Navigate to Settings > Privacy where you can control who can see your posts, profile information, and contact you.</p>
+
+                    <p><strong>Can I export my data?</strong></p>
+                    <p>Yes, you can request a data export from Settings > Privacy > Download Your Data. The export will be prepared and sent to your email within 24 hours.</p>
+
+                    <p><strong>How do I report inappropriate content?</strong></p>
+                    <p>Click on the three-dot menu on any post or profile and select "Report". Our moderation team reviews all reports within 24 hours.</p>
+                </article>
+
+                <aside>
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="#getting-started">Getting Started</a></li>
+                        <li><a href="#platform-features">Platform Features</a></li>
+                        <li><a href="#developer-api">Developer API</a></li>
+                        <li><a href="#help-center">Help Center</a></li>
+                        <li><a href="main.html#features">Platform Overview</a></li>
+                        <li><a href="main2.html">Contact Support</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">SDKs & Libraries</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="main.html">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="main2.html">Contact</a></li>
+            </ul>
+        </nav>
+        <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2024 ConnectHub. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
